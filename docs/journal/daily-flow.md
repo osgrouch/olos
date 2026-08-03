@@ -42,6 +42,7 @@ User enters data.
 > Users are provided an option to skip the rest of the entry.
 > This option is provided for days where the user is in a rush
 > or is taking an intentional rest day.
+> On a skipped day, the only data that makes up this entry is the above.
 
 #### Section 2 (Priorities Setting)
 
@@ -86,7 +87,7 @@ Do not allow user to continue until timer is at 0.
 User creates time blocks in their day to dedicate towards declared priorities.
 User reviews the day's reminders and enters more.
 
-#### Section 3 (Morning Questions)
+#### Section 4 (Morning Questions)
 
 > **Note:**
 > The questions displayed on this screen will be those the user set.
@@ -94,13 +95,16 @@ User reviews the day's reminders and enters more.
 > If that is the case, this page will only prompt the user for new questions.
 
 ```
-List user entered questions and receive input, if any exist
-Allow user to enter a new question and save it (Optional)
+For every question:
+List one question per page and await input before moving on to next question page
+
+Final page of this section will
+allow user to enter a new question and save it (Optional)
 ```
 
 User enters data.
 
-#### Section 4 (Farewell)
+#### Section 5 (Farewell)
 
 ```
 Morning farewell messsage
@@ -150,29 +154,37 @@ User enters selects an emotion
 ```
 Display Signal list from morning entry.
 Prompt user to select an option for each Signal item:
-Options are "Complete", "Push to Tomorrow" or "Won't Do"
+Options are "Complete", "Push to Tomorrow" or "Won't Do".
+The user cannot select "Push to Tomorrow" if the signal has already been pushed twice already.
 
 Display Obstacles & Responses from morning entry.
 ```
 
 User enters data.
 
-#### Section 2 (Habits & Evening Questions)
+### Section 3 (Habits)
 
 > **Note:**
 > Any habits that have already been marked as complete can be changed to "Won't Do" from this page.
 
 ```
 List Habits, if any exist.
-Provide "Mark as Complete" and "Won't Do" options (Mandatory on existing habits)
+Provide "Complete" and "Won't Do" options (Mandatory on existing habits)
+```
 
-List user entered questions and receive input, if any exist
-Allow user to enter a new question and save it (Optional)
+#### Section 4 (Evening Questions)
+
+```
+For every question:
+List one question per page and await input before moving on to next question page
+
+Final page of this section will
+allow user to enter a new question and save it (Optional)
 ```
 
 User enters data.
 
-#### Section 4 (Farewell)
+#### Section 5 (Farewell)
 
 ```
 Evening farewell messsage
