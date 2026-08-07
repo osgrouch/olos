@@ -1,4 +1,6 @@
-# Daily Flow
+# Feature: Daily Priorities And Reflection
+
+7/23/2026
 
 The following details the daily flow that a user experiences everyday when using this journal app.
 The intention of this exercise is to determine the Minimum Viable Product (MVP) for v1.
@@ -75,7 +77,8 @@ User enters data.
 
 ```
 Display entered signal list.
-Display user entered habits and record of this week.
+Display user entered commitments and record of this week.
+Display user entered tasks scheduled for today.
 
 Display 2min timer.
 Do not allow user to continue until timer is at 0.
@@ -162,14 +165,14 @@ Display Obstacles & Responses from morning entry.
 
 User enters data.
 
-### Section 3 (Habits)
+### Section 3 (Commitments)
 
 > **Note:**
-> Any habits that have already been marked as complete can be changed to "Won't Do" from this page.
+> Any commitments that have already been marked as complete can be changed to "Won't Do" from this page.
 
 ```
-List Habits, if any exist.
-Provide "Complete" and "Won't Do" options (Mandatory on existing habits)
+List Commitments, if any exist.
+Provide "Complete" and "Won't Do" options (Mandatory on existing commitments)
 ```
 
 #### Section 4 (Evening Questions)

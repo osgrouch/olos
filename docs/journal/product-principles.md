@@ -11,3 +11,5 @@
 5. The app should feel calm, never overwhelming
 6. User should leave every session knowing what steps to take next
    - Every mountain is climbed one step at a time.
+7. The user can always edit automatically generated suggestions
+   - The user should always remain in control of their timeline.
