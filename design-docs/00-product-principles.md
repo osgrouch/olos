@@ -8,8 +8,8 @@
    - Imperfect days are to be expected, but that is not a reason to stop moving forward.
 4. Reflection is accountability and should derive changes
    - Reflections provide the user a chance to evaluate themselves and discover where changes are needed.
-5. Life is unpredictable and the app should be adaptable
-   - Random life events happen and the app should support changes to the user's expected timelines.
+5. Life is unpredictable and app should prioritize flexibility
+   - Random life events happen and the app should readily support changes.
 6. The app should feel calm, never overwhelming
 7. User should leave every session knowing what steps to take next
    - Every mountain is climbed one step at a time.
