@@ -98,12 +98,12 @@ erDiagram
 
   EveningLog |o--|| Mood : "creates and owns"
   EveningLog ||--|{ GratitudePromptAndResponse : "creates and owns"
-  %% TODO: what does it mean to reflect on active focuses?
+  EveningLog ||--|{ ReflectionPromptAndResponse : "creates and owns"
+
   EveningLog }o--o{ Focus : "reflects on today's focus" 
   EveningLog }|--|{ SignalReview : "creates and owns"
   EveningLog }|--o{ Task : "reflects on today's scheduled"
   EveningLog }|--o{ Commitment : "reflects on today's scheduled"
-  EveningLog ||--|{ ReflectionPromptAndResponse : "creates and owns"
 
   GratitudePromptAndResponse }o--|| GratitudePrompt : "creates and/or references"
   GratitudePromptAndResponse ||--|| Response : "owns"

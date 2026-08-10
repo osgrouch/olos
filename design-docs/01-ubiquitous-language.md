@@ -290,7 +290,15 @@ A Prompt is a statement that user provides an answer to.
 
 A Response is the text entered by the user reflecting on a Prompt.
 
-#### Review
+## Review And Focus Domain
+
+The Review And Focus Domain answers the questions
+"*What did I learn from my experience? What do I want to change moving forward?*"
+
+The Review And Focus Domain supports users by encouraging accoutability through
+reflection and growth through intention-setting for an upcoming time period.
+
+### Review
 
 **Definition**
 
@@ -316,8 +324,7 @@ daily entries, a Review records an Entry targeting a greater timespan.
 Reviews serve to prompt the user 
 to reflect on user actions in a defined time period (TimePeriod)
 
-
-###### ReviewObservation
+##### ReviewObservation
 
 **Definition**
 
@@ -332,8 +339,7 @@ member of the Vision Domain or another member of the Entry Domain.
 **Rules**
 
 **Relationships**
-
-
+- references Vision and Entry Domain objects 
 
 <!-- TODO: these need better names -->
 Users are prompted to enter a few sentences reflecting on what happened with the target
@@ -345,76 +351,116 @@ and Tasks for the day. When entering a MorningLog, users will be prompted to mak
 time in their agenda for Tasks, Commitments and Signal, providing time estimates
 for each.
 
-##### WeeklyReview (Review Execution)
+#### WeeklyReview (Review Execution)
+
+**Definition**
 
 A WeeklyReview answers the question "*Did I live according to my intentions this week?*"
 
-WeeklyReviews focus on the day-today execution of the user's life.
-Users will review daily Logs, Tasks, Commitments, Projects and the WeeklyFocus
-of the previous week.
+WeeklyReviews reflect on the day-to-day execution of the user's life in the last
+seven days.
 
-<!-- TODO: what does it mean to review Logs for the week? -->
+**Distinction**
 
-##### MonthlyReview (Review Progress)
+**Rules**
+
+**Relationships**
+- creates WeeklyFocus
+- references Logs, Projects, Commitments, Tasks, and WeeklyFocus
+
+#### MonthlyReview (Review Progress)
+
+**Definition**
 
 A MonthlyReview answers the question "*Am I actually moving my life forward?*"
 
-MonthlyReviews focus on the user's progress towards their Visions and making
-adjustments as needed. Users will review Outcomes, Projects, Operations,
-and the MonthlyFocus and WeeklyFocuses of the previous month.
+MonthlyReviews reflect on the user's progress towards achieving Outcomes in the
+last month.
 
-##### QuarterlyReview (Review Direction)
+**Distinction**
 
-A QuarterlyReview answers the question "*Am I still pursing the right things?*"
+**Rules**
 
-QuarterlyReviews focus on the user's direction in life and updating that direction
-if necessary. Users will review Visions, Outcomes, Operations, and the QuarterlyFocus
-and MonthlyFocuses of the previous quarter.
+**Relationships**
+- create MonthlyFocus
+- references Outcomes, Operations, Projects and MonthlyFocus
 
-###### Quarter
+#### QuarterlyReview (Review Direction)
+
+**Definition**
+
+A QuarterlyReview answers the question "*Am I moving towards the right things?*"
+
+QuarterlyReviews reflect the progress made in the previous quarter and reflect
+on the greater Vision behind the Outcomes.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+- create QuarterlyFocus
+- references Visions, Outcomes, Operations, QuarterlyFocus, MonthlyFocus
+
+##### Quarter
+
+**Definition**
 
 A quarter is a duration of 3 months. 4 quarters make up a calendar year.
 
-A quarter is a term and not an object in the Domain Model.
-
 ### Focus
+
+**Definition**
 
 A Focus help users answer the question "*What matters right now?*"
 
-A Focus is time-bounded (TimePeriod) and contains FocusPoints of what the user wants
-to prioritize during that period of time.
+Focus organizes user intentions over a period of time.
+
+**Distinction**
 
 Whereas a Review looks backwards and reflects, a Focus looks forward and directs attention.
 
-When creating a Focus, users will declare 1-3 FocusPoints.
+**Rules**
+- Focus can have 1-3 FocusPoint
 
-#### FocusPoint
+**Relationships**
+- create and own FocusPoint
+
+##### FocusPoint
+
+**Definition**
 
 A FocusPoint answers the question "*What deserves my attention?*"
 
-FocusPoints can be qualitative, quantitative, behavioral or relational.
-It is up to the user to decide where their attention is should be prioritized.
+FocusPoints organize a statement of attention with reasoning. They can be qualitative,
+quantitative, behavioral or relational. If a FocusPoint is measurable, objectives
+can be declared with Metrics.
 
-FocusPoints are ordered by priority and have a Statement and Reasoning.
-FocusPoints may contain Metrics.
+**Distinction**
 
-FocusPoints may support Outcomes, Operations, Projects or Commitments.
+**Rules**
 
-##### FocusStatement
-
-A FocusStatement is a declared FocusPoint
+**Relationships**
+- can create Metrics
+- support Outcomes, Operations, Projects or Commitments
 
 ##### Metric
 
+**Definition**
+
 A Metric answers the question "*How can I measure my attention?*"
 
-Metrics can optionally be added to FocusPoints. Not all FocusPoints will be measurable.
-It is up to the user to determine if Metrics can be added to a FocusPoint.
+Metrics are a measurable way to track a FocusPoint.
 
-Metrics provide a way for users to measure if they are actually directing their
-attention towards a FocusPoint by providing targets to strive for.
+**Distinction**
+
+**Rules**
+
+**Relationships**
 
 #### WeeklyFocus
+
+**Definition**
 
 A WeeklyFocus answers the question "*What matters the most this week?*"
 
@@ -422,7 +468,17 @@ A WeeklyFocus is created before a week during a WeeklyReview and users are remin
 of this focus in every MorningLog. WeeklyFocuses are then reviewed during the next
 WeeklyReview.
 
+**Distinction**
+
+**Rules**
+
+**Relationships**
+- referenced by MorningLog and MonthlyReview
+- reviewed by WeeklyReview
+
 #### MonthlyFocus
+
+**Definition**
 
 A MonthlyFocus answers the question "*What deserves sustained attention this month?*"
 
@@ -433,7 +489,17 @@ MonthlyReview.
 MonthlyFocus are reviewed alongside the WeeklyFocuses of the same month.
 The WeeklyFocuses serve to inform the user of what happened during the month.
 
+**Distinction**
+
+**Rules**
+
+**Relationships**
+- referenced by QuarterlyReview
+- reviewed by MonthlyReview
+
 #### QuarterlyFocus
+
+**Definition**
 
 A QuarterlyFocus answers the question "*What season of life am I in?*"
 
@@ -443,3 +509,10 @@ the next QuarterlyReview.
 
 QuarterlyFocus are reviewed alongside the MonthlyFocuses of the same quarter.
 The MonthlyFocuses serve to inform the user of what happened during the quarter.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+- reviewed by QuarterlyReview
