@@ -1,33 +1,33 @@
 # Entity Relationships with Mermaid
 
-## Visions Domain
+## Vision Domain
 ``` mermaid
 ---
 config:
   layout: elk
-title: Visions Domain
+title: Vision Domain Entity Relationship Diagram
 ---
 erDiagram
   direction TB
 
-  VISION ||--o{ OUTCOME : "creates and owns"
+  Vision ||--o{ Outcome : "creates and owns"
 
-  OUTCOME }o--o{ OUTCOME : "can block other"
-  OUTCOME }o--o{ OPERATION : "is supported by"
-  OUTCOME }o--o{ PROJECT : "is supported by"
-  OUTCOME }o--o{ COMMITMENT : "is supported by"
+  Outcome }o--o{ Outcome : "depends on"
+  Outcome }o--o{ Operation : "is supported by"
+  Outcome }o--o{ Project : "is supported by"
+  Outcome }o--o{ Commitment : "is supported by"
 
-  OPERATION }o--o{ PROJECT : "is supported by"
-  OPERATION }o--o{ COMMITMENT : "is supported by"
-  OPERATION ||--o{ TASK : "creates and owns"
+  Operation }o--o{ Project : "is supported by"
+  Operation }o--o{ Commitment : "is supported by"
+  Operation ||--o{ Task : "creates and owns"
 
-  PROJECT }o--o{ COMMITMENT : "is supported by"
-  PROJECT ||--o{ TASK : "creates and owns"
+  Project }o--o{ Commitment : "is supported by"
+  Project ||--o{ Task : "creates and owns"
 
-  COMMITMENT ||--o{ TASK : "creates and owns repeated"
+  Commitment ||--o{ Task : "creates and owns repeated"
 ```
 
-## Entries Domain
+## Entry Domain
 
 ``` mermaid
 ---
@@ -51,18 +51,18 @@ erDiagram
   Focus ||--o{ QuarterlyFocus : "can be of type"
 ```
 
-### Morning Log
+### MorningLog
 
 ``` mermaid
 ---
-title: MorningLog Relationships
+title: MorningLog Entity Relationship Diagram
 ---
 erDiagram
   direction TB
 
-  MorningLog |o--|| Mood : "creates and owns"
   MorningLog ||--|| SleepRecord: "creates and owns"
-  MorningLog }|--|| WeeklyFocus : "references this week's"
+  MorningLog |o--|| Mood : "creates and owns"
+  MorningLog }o--o{ Focus : "references active focus"
   MorningLog }|--o{ Task : "references today's scheduled"
   MorningLog }|--o{ Commitment : "references today's scheduled"
   MorningLog ||--|{ Signal : "creates and owns"
@@ -76,14 +76,16 @@ erDiagram
 
 ``` mermaid
 ---
-title: EveningLog Relationships
+title: EveningLog Entity Relationship Diagram
 ---
 erDiagram
   direction TB
 
   EveningLog |o--|| Mood : "creates and owns"
   EveningLog ||--|{ GratitudePromptAndResponse : "creates and owns"
-  EveningLog }|--|{ Signal : "reflects on today's"
+  %% TODO: what does it mean to reflect on active focuses?
+  EveningLog }o--o{ Focus : "reflects on today's focus" 
+  EveningLog }|--|{ SignalReview : "creates and owns"
   EveningLog }|--o{ Task : "reflects on today's scheduled"
   EveningLog }|--o{ Commitment : "reflects on today's scheduled"
   EveningLog ||--|{ ReflectionPromptAndResponse : "creates and owns"
@@ -95,49 +97,97 @@ erDiagram
   ReflectionPromptAndResponse ||--|| Response : "owns"
 ```
 
+### Review and Focus Domain
+
+All Review subtypes implement this general flow. Each Review subtype will review specific
+objects such as Projects, Tasks and Commitments, and will not review ALL objects in the
+Vision Domain.
+
+A ReviewObservation can evaluate any of these objects, but each ReviewObservation will
+target one specific domain object.
+
+``` mermaid
+---
+title: Review and Focus Domain
+---
+erDiagram
+  direction TB
+  
+  Review ||--o{ ReviewObservation : "creates and owns"
+
+  ReviewObservation }o--|| Focus : "may evaluate a"
+  ReviewObservation }o--|| Outcome : "may evaluate an"
+  ReviewObservation }o--|| Operation : "may evaluate an"
+  ReviewObservation }o--|| Project : "may evaluate a"
+  ReviewObservation }o--|| Commitment : "may evaluate a"
+  ReviewObservation }o--|| Task : "may evaluate a"
+
+  Review ||--o| Focus : "may create a"
+
+  Focus ||--|{ FocusPoint : "owns"
+  Outcome }o--o{ FocusPoint : "is supported by"
+  Operation }o--o{ FocusPoint : "is prioritized by"
+  Project }o--o{ FocusPoint : "is prioritized by"
+  Commitment }o--o{ FocusPoint : "is prioritized by"
+```
+
 ### Weekly Review
 
 ``` mermaid
 ---
-title: WeeklyReview Relationships
+title: WeeklyReview Entity Relationship Diagram
 ---
 erDiagram
   direction TB
+  
+  WeeklyReview ||--o{ ReviewObservation : "creates and owns"
 
-  WeeklyReview }|--|| WeeklyFocus : "reflects on previous and creates new"
-  WeeklyReview }|--o{ Project : "reflects on progress and updates"
-  WeeklyReview }|--o{ Task : "reflects on previous week and schedules for upcoming week"
-  WeeklyReview }|--o{ Commitment : "reflects on previous week and schedules for upcoming week"
+  ReviewObservation }o--|| WeeklyFocus : "may evaluate a"
+  ReviewObservation }o--|| Log : "may evaluate a"
+  ReviewObservation }o--|| Project : "may evaluate a"
+  ReviewObservation }o--|| Commitment : "may evaluate a"
+  ReviewObservation }o--|| Task : "may evaluate a"
+
+  WeeklyReview ||--o| WeeklyFocus : "may create a"
 ```
 
 ### Monthly Review
 
 ``` mermaid
 ---
-title: MonthlyReview Relationships
+title: MonthlyReview Entity Relationship Diagram
 ---
 erDiagram
   direction TB
 
-  MonthlyReview ||--|{ WeeklyFocus : "reviews this month's"
-  MonthlyReview }|--|| MonthlyFocus : "reflects on previous and creates new"
-  MonthlyReview }|--o{ Outcome : "reflects on, adjusts and can create new"
-  MonthlyReview }|--o{ Operation : "reflects on, adjusts and can create new"
-  MonthlyReview }|--o{ Project : "reflects on progress and updates"
+  MonthlyReview ||--o{ ReviewObservation : "creates and owns"
+
+  ReviewObservation }o--|| MonthlyFocus : "may evaluate a"
+  ReviewObservation }o--|| WeeklyFocus : "may evaluate a"
+  ReviewObservation }o--|| Outcome : "may evaluate an"
+  ReviewObservation }o--|| Operation : "may evaluate an"
+  ReviewObservation }o--|| Project : "may evaluate a"
+
+  MonthlyReview ||--o| MonthlyFocus : "may create a"
 ```
 
 ### Quarterly Review
 
 ``` mermaid
 ---
-title: QuarterlyReview Relationships
+title: QuarterlyReview Entity Relationship Diagram
 ---
 erDiagram
   direction TB
-  
-  QuarterlyReview ||--|{ MonthlyFocus : "reviews this quarter's"
-  QuarterlyReview }|--|| QuarterlyFocus : "reviews previous and creates new"
-  QuarterlyReview }|--o{ Vision : "reflects on, adjusts and can create new"
-  QuarterlyReview }|--o{ Outcome : "reflects on, adjusts and can create new"
-  QuarterlyReview }|--o{ Operation : "reflects on, adjusts and can create new"
+
+  QuarterlyReview ||--o{ ReviewObservation : "creates and owns"
+
+  ReviewObservation }o--|| QuarterlyFocus : "may evaluate a"
+  ReviewObservation }o--|| MonthlyFocus : "may evaluate a"
+  ReviewObservation }o--|| Vision : "may evaluate a"
+  ReviewObservation }o--|| Outcome : "may evaluate an"
+  ReviewObservation }o--|| Operation : "may evaluate an"
+  QuarterlyReview }o--o{ Project : "references"
+
+  QuarterlyReview ||--o| QuarterlyFocus : "may create a"
 ```

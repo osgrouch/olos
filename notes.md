@@ -1,18 +1,12 @@
 # Notes
 
-## Investigate Clean up of old tasks
-
 ## What does review Signal every evening mean?
-
-## Does this help someone take the next meaningful action? as a product principle
 
 ## quarterly review questions
 
 What should exist that doesn’t?
 
 What exists that no longer should?
-
-## Reviews are an opportunity to clean up and re align with the users intentions
 
 ## Week Scores in WeeklyReviews
 
@@ -26,3 +20,8 @@ the week.
 
 How exactly are each of these things reviewed? and now that we have this data, how can
 we help user use it to improve?
+
+## QuarterlyReview supporting evidence?
+
+Should QuarterlyReviews reference Projects? The goal is not to review them, but use them
+to inform the user of progress made during the quarter.
