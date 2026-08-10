@@ -3,6 +3,16 @@
 This file contains the different terms used throughout the OLOS environent and
 serves as the single point of truth for what each term means.
 
+## Template
+
+**Definition**
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
 ## Visions Domain
 
 The Visions Domain answers the question
@@ -13,63 +23,128 @@ large goal (a Vision) and break it down into actionable steps.
 
 ### Vision
 
+**Definition**
+
 A Vision answers the question of "*Where am I going?*"
 
 A Vision is a large goal the user wants to achieve. They define the direction
 that the user wants to take their life in.
 
-Visions create and own Outcomes.
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
+- Visions create and own Outcomes.
 
 ### Outcome
+
+**Definition**
 
 An Outcome answers the question of "*What needs to happen?*"
 
 An Outcome is a real-world accomplishment that takes the user one step closer to
 their Vision.
 
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
+- Outcomes may have Dependencies.
+
 #### Outcome Dependency
+
+**Definition**
 
 An Outcome Dependency answers the question of "*What needs to happen before I can do ___?*"
 
 An Outcome may depend on another Outcome being completed before meaningful progress can be
-made. Dependencies are not formal objects but a classification of an Outcome-to-Outcome
-relationship.
+made. Dependencies are a classification of an Outcome-to-Outcome relationship.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
 
 ### Operation
+
+**Definition**
 
 An Operation answers the question of "*What am continuously I responsible for?*"
 
 An Operation is an ongoing area of responsibility. Operations serve to organize
-related Tasks, Projects and Commitments with a common purpose. Operations are
-theoretically infinite.
+related Tasks, Projects and Commitments with a common purpose. 
 
-Operations can support Outcomes.
+**Distinction**
+
+Operations are theoretically infinite.
+
+**Rules**
+
+**Relationships**
+
+- Operations can support Outcomes.
 
 ### Project
+
+**Definition**
 
 A Project answers the question of "*How do I accomplish a big task?*"
 
 A Project is an organized effort to accomplish some goal by a target date.
-Projects serve to organize related Tasks with one clear goal. Projects are
-finite by defintion. A Project cannot be created without a target end date.
+Projects serve to organize related Tasks with one clear goal. 
 
-Projects can support Operations and Outcomes.
+**Distinction**
+
+Projects are finite by defintion. 
+
+**Rules**
+
+A Project cannot be created without a target end date.
+
+**Relationships**
+
+- Projects create and own Tasks.
+- Projects can support Operations and Outcomes.
 
 ### Commitment
+
+**Definition**
 
 A Commitment answers the question of "*What repeated behaviors am I promising to do?*"
 
 A Commitment is a repeated behavior that the user has commited to doing.
-Commitments can create repeated Tasks.
 
-Commitments can support Projects, Operations and Outcomes.
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
+- Commitments can create and own repeated Tasks.
+- Commitments can support Projects, Operations and Outcomes.
 
 ### Task
+
+**Definition**
 
 A Task answers the question of "*What is my next step?*"
 
 A Task is an action. Tasks serve to inform the user of the next steps they can
-take towards some greater goal. Tasks cannot exist without their parent.
+take towards some greater goal.
+
+**Distinction**
+
+**Rules**
+
+- Tasks cannot exist without their parent.
+- Tasks cannot be ReviewObservation targets.
+
+**Relationships**
 
 ## Entry Domain
 
@@ -80,23 +155,49 @@ users through reflection and intention setting.
 
 ### Entry
 
-An Entry defines the shared behavior of Log and Review types. It is an abstract
-parent which both Log and Review inherit and extend.
+**Definition**
+
+An Entry is a recorded interaction with OLOS through which the user documents, prepares
+for, or reflects upon their life during a defined period of time.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+- review Signal
 
 #### Log
+
+**Definition**
 
 A Log answers the question "*What is happening today?*"
 
 A Log describes a user's daily entries. Logs are designed to support a user's
 day-to-day life.
 
-A Log defines the shared behavior of MorningLog and EveningLog. It is an abstract
-parent which both MorningLog and EveningLog inherit and extend.
+**Distinction**
+
+**Rules**
+
+**Relationships**
 
 ##### MorningLog (Prepare for the day)
 
+**Definition**
+
 A MorningLog answers the question "*What does today need to accomplish?*"
 
+A MorningLog describes the user's daily morning entry. A MorningLog prepares users
+for the day ahead of them.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
+<!-- TODO: move this to a new doc -->
 The user will be prompted to enter a MorningLog every morning. MorningLogs serve
 to prepare the user for the day. Users are prompted to declare their sleep time
 (SleepRecord), how they feel (Mood), priorities for the day (Signal), and
@@ -108,40 +209,60 @@ users will be prompted to make time in their agenda for Tasks, Commitments and S
 
 ###### Agenda
 
-An agenda is the user's timeline of scheduled events/activites for a given day.
+**Definition**
 
-An agenda is a term and not a domain model object.
+An agenda is the user's timeline of scheduled events/activites for a given day.
 
 ###### Signal
 
-A Signal answers the question "*What is a priority today?*"
+**Definition**
 
-Users must declare at least one Signal.
+Signal answers the question "*What is a priority today?*"
 
-> **Note:**
-> The concept of Signal comes from the following
-> [Source: Kevin O'Leary talking about working with Steve Jobs on The Diary of a CEO podcast.](https://www.youtube.com/watch?v=mpAZehPviLQ&t=535s)
-> In summary:
-> Signal is the 3-5 things that need to get done before you go to bed.
-> Anything that distracts you from these things are *noise*.
+The concept of Signal comes from the following source:
+[Kevin O'Leary talking about working with Steve Jobs on The Diary of a CEO podcast](https://www.youtube.com/watch?v=mpAZehPviLQ&t=535s).
+
+In short, Signal is the 3-5 things that need to get done before you go to bed.
+Anything that distracts you from these things are *noise*.
+
+**Rules**
+Each MorningLog must declare at least one Signal item.
+
+**Relationships**
+- Reviewed by EveningLogs
 
 ###### Noise
 
-Noise is anything that distracts the user from their declared Signal items.
+**Definition**
 
-Noise is not a domain model object, but rather a term that encompasses anything that
-is not a priority today.
+Noise is anything that distracts the user from their priorities (Signal).
 
 ###### Obstacle
 
+**Definition**
+
 An Obstacle answers the question "*What is probable to block me from my priorities today?*"
 
-An Obstacle is a type of noise. Users must declare at least one Obstacle.
+**Distinction**
+
+An Obstacle is a type of noise.
 
 ##### EveningLog (Reflect on the day)
 
-A EveningLog answers the question "*What actually got done today?*"
+**Definition**
 
+An EveningLog answers the question "*What actually got done today?*"
+
+An EveningLog describes the user's daily evening entry. An EveningLog reflects on what
+the user did today.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
+<!-- TODO: move to a seperate doc -->
 A user will be prompted to enter an EveningLog every evening. EveningLogs allow
 the user to reflect on what they accomplished during the day. Users are prompted
 for how the feel (Mood), what they are grateful for today
@@ -151,46 +272,68 @@ for how the feel (Mood), what they are grateful for today
 EveningLogs will prompt users to review the date's Signal's, and to mark scheduled
 Tasks and Commitments as complete or not.
 
-##### PromptAndResponse Types
+##### PromptAndResponse
 
 A PromptAndResponse organizes a reusable Prompt with a user entered Response.
 
 ###### Prompt
 
+**Definition**
+
 A Prompt answers the question "*What statements do I want to reflect on?*"
 
 A Prompt is a statement that user provides an answer to.
 
-Concrete types are:
-- GratitudePrompt
-- ReflectionPrompt
-
 ###### Response
+
+**Definition**
 
 A Response is the text entered by the user reflecting on a Prompt.
 
 #### Review
 
+**Definition**
+
 A Review answers the following questions "*What did I do? What did I learn? What needs to change?*"
 
-A Review describes an Entry different to a Log. Reviews serve to prompt the user 
-to reflect on user actions in a defined time period (TimePeriod), understand why they
-happened the way they did, and to identify adjustments in the user's life so they
-can continue to make progress towards their Visions.
+Reviews serve to reflect on what happened, understand why, identify lessons and
+create adjustments as desired. Reviews are how the system continiously re-aligns
+with the user's desires.
 
-Reviews create ReviewObservations, each targeting an individual object from the
-Vision Domain or a previous Focus.
+**Distinction**
 
-The Reviews derive adjustments for the future in the form of a Focus.
+A Review describes an Entry different to a Log. Whereas a Log is used to record
+daily entries, a Review records an Entry targeting a greater timespan.
+
+**Rules**
+
+**Relationships**
+
+- Reviews create ReviewObservations for each thing Reviewed
+- Reviews can create a Focus
+
+<!-- TODO: move to a new doc -->
+Reviews serve to prompt the user 
+to reflect on user actions in a defined time period (TimePeriod)
+
 
 ###### ReviewObservation
+
+**Definition**
 
 A ReviewObservation targets one specific object to review and asks the questions
 "*What happened with this target in this time period? Why? How do I feel about this?  What did I learn? What adjustments do I want to make?*"
 
-The user will be prompted to create ReviewObservations during each Review, focusing
-on specific objects to Review. What objects exactly are dictated by the different
-Review types below.
+ReviewObservations hold a user's review for a specific target. The target can be a
+member of the Vision Domain or another member of the Entry Domain.
+
+**Distinction**
+
+**Rules**
+
+**Relationships**
+
+
 
 <!-- TODO: these need better names -->
 Users are prompted to enter a few sentences reflecting on what happened with the target
@@ -201,14 +344,6 @@ MorningLogs will remind users of their active Focuses and their scheduled Commit
 and Tasks for the day. When entering a MorningLog, users will be prompted to make
 time in their agenda for Tasks, Commitments and Signal, providing time estimates
 for each.
-
-####### Targeting Vision
-####### Targeting Outcome
-####### Targeting Operation
-####### Targeting Project
-####### Targeting Commitment
-####### Targeting Task
-####### Targeting Focus
 
 ##### WeeklyReview (Review Execution)
 
