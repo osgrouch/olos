@@ -51,6 +51,8 @@ their Vision.
 
 **Rules**
 
+- Outcomes own nothing
+
 **Relationships**
 
 - Outcomes may have Dependencies.
@@ -67,6 +69,8 @@ made. Dependencies are a classification of an Outcome-to-Outcome relationship.
 **Distinction**
 
 **Rules**
+
+- Outcomes can only have other Outcomes as Dependencies
 
 **Relationships**
 
@@ -87,6 +91,7 @@ Operations are theoretically infinite.
 
 **Relationships**
 
+- Operations create and own Tasks.
 - Operations can support Outcomes.
 
 ### Project
@@ -104,7 +109,7 @@ Projects are finite by defintion.
 
 **Rules**
 
-A Project cannot be created without a target end date.
+- A Project cannot be created without a target end date.
 
 **Relationships**
 
@@ -145,6 +150,8 @@ take towards some greater goal.
 - Tasks cannot be ReviewObservation targets.
 
 **Relationships**
+
+- Tasks are owned by a singular Operation, Project or Commitment.
 
 ## Entry Domain
 
@@ -189,7 +196,7 @@ day-to-day life.
 A MorningLog answers the question "*What does today need to accomplish?*"
 
 A MorningLog describes the user's daily morning entry. A MorningLog prepares users
-for the day ahead of them.
+for the day ahead of them by helping them setup their day's agenda.
 
 **Distinction**
 
@@ -197,21 +204,38 @@ for the day ahead of them.
 
 **Relationships**
 
-<!-- TODO: move this to a new doc -->
-The user will be prompted to enter a MorningLog every morning. MorningLogs serve
-to prepare the user for the day. Users are prompted to declare their sleep time
-(SleepRecord), how they feel (Mood), priorities for the day (Signal), and
-potential Obstacles and Responses they will face today (ObstacleAndResponse).
-
-MorningLogs will remind users of their active Focuses (Weekly, Monthly and Quaterly)
-and their scheduled Commitments and Tasks for the day. When entering a MorningLog,
-users will be prompted to make time in their agenda for Tasks, Commitments and Signal, providing time estimates for each.
+- creates and owns SleepRecord
+- creates and owns Mood
+- references active Focuses (Weekly, Monthly and Quarterly)
+- references today's schedule Tasks and Commitments
+- creates and owns Signal
+- creates and owns ObstacleAndResponse
 
 ###### Agenda
 
 **Definition**
 
 An agenda is the user's timeline of scheduled events/activites for a given day.
+
+###### SleepRecord
+
+**Definition**
+
+A SleepRecord records the user's bedtime and wakeup time.
+
+**Relationships**
+
+- is created and owned by a MorningLog
+
+###### Mood
+
+**Definition**
+
+Mood records the user's mood in a Log.
+
+**Relationships**
+
+- is created and owned by a Log (MorningLog or EveningLog)
 
 ###### Signal
 
@@ -226,9 +250,11 @@ In short, Signal is the 3-5 things that need to get done before you go to bed.
 Anything that distracts you from these things are *noise*.
 
 **Rules**
+
 Each MorningLog must declare at least one Signal item.
 
 **Relationships**
+
 - Reviewed by EveningLogs
 
 ###### Noise
@@ -237,15 +263,44 @@ Each MorningLog must declare at least one Signal item.
 
 Noise is anything that distracts the user from their priorities (Signal).
 
+###### ObstacleAndResponse
+
+**Definition**
+
+An ObstacleAndResponse organizes an Obstacle and a Response.
+
+**Relationships**
+
+- is created and owned by a MorningLog
+- can create an Obstacle
+- references Obstacle
+- creates and owns Response
+
 ###### Obstacle
 
 **Definition**
 
 An Obstacle answers the question "*What is probable to block me from my priorities today?*"
 
+An Obstacle is any significant blocker to the day's Signal items, identified by the user.
+
 **Distinction**
 
 An Obstacle is a type of noise.
+
+**Relationships**
+
+- may be referenced by ObstacleAndResponses
+
+###### Response
+
+**Definition**
+
+A Response is the text entered by the user reflecting on some prompt.
+
+**Relationships**
+
+- created and owned be some AndResponse
 
 ##### EveningLog (Reflect on the day)
 
@@ -262,15 +317,13 @@ the user did today.
 
 **Relationships**
 
-<!-- TODO: move to a seperate doc -->
-A user will be prompted to enter an EveningLog every evening. EveningLogs allow
-the user to reflect on what they accomplished during the day. Users are prompted
-for how the feel (Mood), what they are grateful for today
-(GratitudePromptAndResponse), and reflection questions (ReflectionPromptAndResponse).
-
-<!-- TODO: What does it mean to review Signal items? -->
-EveningLogs will prompt users to review the date's Signal's, and to mark scheduled
-Tasks and Commitments as complete or not.
+- creates and owns Mood
+- creates and owns GratitudePromptAndResponse
+- creates and owns ReflectionPromptAndResponse
+- references active Focuses (Weekly, Monthly and Quarterly)
+- creates and owns SignalReview
+  <!-- TODO: Should these be a formal Review object too? -->
+- references today's schedule Tasks and Commitments
 
 ##### PromptAndResponse
 
@@ -282,13 +335,7 @@ A PromptAndResponse organizes a reusable Prompt with a user entered Response.
 
 A Prompt answers the question "*What statements do I want to reflect on?*"
 
-A Prompt is a statement that user provides an answer to.
-
-###### Response
-
-**Definition**
-
-A Response is the text entered by the user reflecting on a Prompt.
+A Prompt is a statement that user provides an answer to in the form of a Response.
 
 ## Review And Focus Domain
 
@@ -341,16 +388,6 @@ member of the Vision Domain or another member of the Entry Domain.
 **Relationships**
 - references Vision and Entry Domain objects 
 
-<!-- TODO: these need better names -->
-Users are prompted to enter a few sentences reflecting on what happened with the target
-(Reflection), what they learned (Lessons), what changes they want to make (Adjustments)
-and they can optionally provide a score on the target during the time period (Score).
-
-MorningLogs will remind users of their active Focuses and their scheduled Commitments
-and Tasks for the day. When entering a MorningLog, users will be prompted to make
-time in their agenda for Tasks, Commitments and Signal, providing time estimates
-for each.
-
 #### WeeklyReview (Review Execution)
 
 **Definition**
@@ -358,7 +395,9 @@ for each.
 A WeeklyReview answers the question "*Did I live according to my intentions this week?*"
 
 WeeklyReviews reflect on the day-to-day execution of the user's life in the last
-seven days.
+seven days. WeeklyReviews serve as an opportunity for users to examine their week
+and take accountability. WeeklyFocuses are created with specific points of focus
+for the upcoming week.
 
 **Distinction**
 
@@ -374,8 +413,9 @@ seven days.
 
 A MonthlyReview answers the question "*Am I actually moving my life forward?*"
 
-MonthlyReviews reflect on the user's progress towards achieving Outcomes in the
-last month.
+MonthlyReviews serve to review the progress made towards Outcomes in a month-long period.
+MonthlyReviews create a MonthlyFocus which declared the areas of priority for the
+upcoming month.
 
 **Distinction**
 
@@ -391,8 +431,10 @@ last month.
 
 A QuarterlyReview answers the question "*Am I moving towards the right things?*"
 
-QuarterlyReviews reflect the progress made in the previous quarter and reflect
-on the greater Vision behind the Outcomes.
+QuarterlyReviews reflect the progress made in the previous quarter and on the greater
+Vision behind the Outcomes the user is working towards. QuarterlyReviews reflect on the
+direction of the entire system and serve to periodically re-align the system with the user
+by providing an opportunity to make direction-level changes.
 
 **Distinction**
 

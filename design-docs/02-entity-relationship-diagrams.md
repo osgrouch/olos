@@ -162,6 +162,7 @@ erDiagram
   ReviewObservation }o--|| Log : "may evaluate a"
   ReviewObservation }o--|| Project : "may evaluate a"
   ReviewObservation }o--|| Commitment : "may evaluate a"
+  ReviewObservation }o--|| Project : "may evaluate a"
 
   WeeklyReview ||--o| WeeklyFocus : "may create a"
 ```
@@ -202,7 +203,7 @@ erDiagram
   ReviewObservation }o--|| Vision : "may evaluate a"
   ReviewObservation }o--|| Outcome : "may evaluate an"
   ReviewObservation }o--|| Operation : "may evaluate an"
-  QuarterlyReview }o--o{ Project : "references"
+  ReviewObservation }o--o{ Project : "may evaluate a"
 
   QuarterlyReview ||--o| QuarterlyFocus : "may create a"
 ```
