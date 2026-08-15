@@ -1,6 +1,6 @@
-# Ubiquitous Languge
+# Ubiquitous Language
 
-This file contains the different terms used throughout the OLOS environent and
+This file contains the different terms used throughout the OLOS environment and
 serves as the single point of truth for what each term means.
 
 ## Template
@@ -13,12 +13,12 @@ serves as the single point of truth for what each term means.
 
 **Relationships**
 
-## Visions Domain
+## Vision Domain
 
-The Visions Domain answers the question
+The Vision Domain answers the question
 "*What am I trying to accomplish and what am I doing about it?*"
 
-The Visions Domain is the area of the OLOS app designed to help users define a
+The Vision Domain is the area of the OLOS app designed to help users define a
 large goal (a Vision) and break it down into actionable steps.
 
 ### Vision
@@ -30,10 +30,6 @@ A Vision answers the question of "*Where am I going?*"
 A Vision is a large goal the user wants to achieve. They define the direction
 that the user wants to take their life in.
 
-**Distinction**
-
-**Rules**
-
 **Relationships**
 
 - Visions create and own Outcomes.
@@ -44,10 +40,7 @@ that the user wants to take their life in.
 
 An Outcome answers the question of "*What needs to happen?*"
 
-An Outcome is a real-world accomplishment that takes the user one step closer to
-their Vision.
-
-**Distinction**
+An Outcome is a real-world accomplishment that advances the user towards a Vision.
 
 **Rules**
 
@@ -55,33 +48,29 @@ their Vision.
 
 **Relationships**
 
-- Outcomes may have Dependencies.
+- may have Dependencies
+- are created and owned a Vision
+- may be supported by Operations, Projects and Commitments
 
-#### Outcome Dependency
+#### Dependency
 
 **Definition**
 
-An Outcome Dependency answers the question of "*What needs to happen before I can do ___?*"
+A Dependency answers the question of "*What needs to happen before I can do ___?*"
 
-An Outcome may depend on another Outcome being completed before meaningful progress can be
-made. Dependencies are a classification of an Outcome-to-Outcome relationship.
-
-**Distinction**
-
-**Rules**
-
-- Outcomes can only have other Outcomes as Dependencies
-
-**Relationships**
+A Dependency defines a type of relationship from one Outcome to another Outcome.
+An Outcome marked as a Dependency blocks significant progress being made on another
+Outcome until the Outcome marked as Dependency is completed. This provides a way for
+users to create a path towards achieving a Vision.
 
 ### Operation
 
 **Definition**
 
-An Operation answers the question of "*What am continuously I responsible for?*"
+An Operation answers the question of "*What am I continuously responsible for?*"
 
 An Operation is an ongoing area of responsibility. Operations serve to organize
-related Tasks, Projects and Commitments with a common purpose. 
+related Projects, Commitments and Tasks with a common purpose.
 
 **Distinction**
 
@@ -89,10 +78,12 @@ Operations are theoretically infinite.
 
 **Rules**
 
+- Operations do not have end dates
+
 **Relationships**
 
-- Operations create and own Tasks.
-- Operations can support Outcomes.
+- may create and own Projects, Commitments and Tasks
+- may support Outcomes
 
 ### Project
 
@@ -101,20 +92,24 @@ Operations are theoretically infinite.
 A Project answers the question of "*How do I accomplish a big task?*"
 
 A Project is an organized effort to accomplish some goal by a target date.
-Projects serve to organize related Tasks with one clear goal. 
+Projects serve to organize related Tasks with one clear goal.
 
 **Distinction**
 
-Projects are finite by defintion. 
+Projects are finite by definition.
 
 **Rules**
 
 - A Project cannot be created without a target end date.
+- A Project may continue beyond its original target end date.
+- Project end dates are modifiable.
 
 **Relationships**
 
-- Projects create and own Tasks.
-- Projects can support Operations and Outcomes.
+- may create and own Tasks
+- may be created and owned by Operations
+- may support Outcomes
+- may be supported by Commitments
 
 ### Commitment
 
@@ -122,7 +117,7 @@ Projects are finite by defintion.
 
 A Commitment answers the question of "*What repeated behaviors am I promising to do?*"
 
-A Commitment is a repeated behavior that the user has commited to doing.
+A Commitment is a repeated behavior that the user has committed to doing.
 
 **Distinction**
 
@@ -130,8 +125,8 @@ A Commitment is a repeated behavior that the user has commited to doing.
 
 **Relationships**
 
-- Commitments can create and own repeated Tasks.
-- Commitments can support Projects, Operations and Outcomes.
+- may create and own repeated Tasks
+- may support Projects and Outcomes
 
 ### Task
 
@@ -142,22 +137,21 @@ A Task answers the question of "*What is my next step?*"
 A Task is an action. Tasks serve to inform the user of the next steps they can
 take towards some greater goal.
 
-**Distinction**
-
 **Rules**
 
-- Tasks cannot exist without their parent.
-- Tasks cannot be ReviewObservation targets.
+- own nothing
+- cannot exist without a parent
+- cannot be ReviewObservation targets
 
 **Relationships**
 
-- Tasks are owned by a singular Operation, Project or Commitment.
+- are created and owned by a singular Operation, Project or Commitment
 
 ## Entry Domain
 
 The Entry Domain answers the question "*What is happening in my life?*"
 
-The Entries Domain is the area of the OLOS environment designed to support
+The Entry Domain is the area of the OLOS environment designed to support
 users through reflection and intention setting.
 
 ### Entry
@@ -167,14 +161,7 @@ users through reflection and intention setting.
 An Entry is a recorded interaction with OLOS through which the user documents, prepares
 for, or reflects upon their life during a defined period of time.
 
-**Distinction**
-
-**Rules**
-
-**Relationships**
-- review Signal
-
-#### Log
+### Log
 
 **Definition**
 
@@ -183,13 +170,7 @@ A Log answers the question "*What is happening today?*"
 A Log describes a user's daily entries. Logs are designed to support a user's
 day-to-day life.
 
-**Distinction**
-
-**Rules**
-
-**Relationships**
-
-##### MorningLog (Prepare for the day)
+### MorningLog (Prepare for the day)
 
 **Definition**
 
@@ -197,10 +178,6 @@ A MorningLog answers the question "*What does today need to accomplish?*"
 
 A MorningLog describes the user's daily morning entry. A MorningLog prepares users
 for the day ahead of them by helping them setup their day's agenda.
-
-**Distinction**
-
-**Rules**
 
 **Relationships**
 
@@ -211,13 +188,13 @@ for the day ahead of them by helping them setup their day's agenda.
 - creates and owns Signal
 - creates and owns ObstacleAndResponse
 
-###### Agenda
+#### Agenda
 
 **Definition**
 
-An agenda is the user's timeline of scheduled events/activites for a given day.
+An agenda is the user's timeline of scheduled events/activities for a given day.
 
-###### SleepRecord
+#### SleepRecord
 
 **Definition**
 
@@ -227,7 +204,7 @@ A SleepRecord records the user's bedtime and wakeup time.
 
 - is created and owned by a MorningLog
 
-###### Mood
+#### Mood
 
 **Definition**
 
@@ -237,7 +214,7 @@ Mood records the user's mood in a Log.
 
 - is created and owned by a Log (MorningLog or EveningLog)
 
-###### Signal
+#### Signal
 
 **Definition**
 
@@ -251,19 +228,19 @@ Anything that distracts you from these things are *noise*.
 
 **Rules**
 
-Each MorningLog must declare at least one Signal item.
+- each MorningLog must declare at least one Signal item
 
 **Relationships**
 
-- Reviewed by EveningLogs
+- may be reviewed by an EveningLog
 
-###### Noise
+#### Noise
 
 **Definition**
 
 Noise is anything that distracts the user from their priorities (Signal).
 
-###### ObstacleAndResponse
+#### ObstacleAndResponse
 
 **Definition**
 
@@ -272,11 +249,11 @@ An ObstacleAndResponse organizes an Obstacle and a Response.
 **Relationships**
 
 - is created and owned by a MorningLog
-- can create an Obstacle
+- may create an Obstacle
 - references Obstacle
 - creates and owns Response
 
-###### Obstacle
+##### Obstacle
 
 **Definition**
 
@@ -290,9 +267,9 @@ An Obstacle is a type of noise.
 
 **Relationships**
 
-- may be referenced by ObstacleAndResponses
+- may be referenced by any number of ObstacleAndResponse
 
-###### Response
+##### Response
 
 **Definition**
 
@@ -302,7 +279,7 @@ A Response is the text entered by the user reflecting on some prompt.
 
 - created and owned be some AndResponse
 
-##### EveningLog (Reflect on the day)
+### EveningLog (Reflect on the day)
 
 **Definition**
 
@@ -325,11 +302,11 @@ the user did today.
   <!-- TODO: Should these be a formal Review object too? -->
 - references today's schedule Tasks and Commitments
 
-##### PromptAndResponse
+#### PromptAndResponse
 
 A PromptAndResponse organizes a reusable Prompt with a user entered Response.
 
-###### Prompt
+##### Prompt
 
 **Definition**
 
@@ -342,7 +319,7 @@ A Prompt is a statement that user provides an answer to in the form of a Respons
 The Review And Focus Domain answers the questions
 "*What did I learn from my experience? What do I want to change moving forward?*"
 
-The Review And Focus Domain supports users by encouraging accoutability through
+The Review And Focus Domain supports users by encouraging accountability through
 reflection and growth through intention-setting for an upcoming time period.
 
 ### Review
@@ -352,8 +329,13 @@ reflection and growth through intention-setting for an upcoming time period.
 A Review answers the following questions "*What did I do? What did I learn? What needs to change?*"
 
 Reviews serve to reflect on what happened, understand why, identify lessons and
-create adjustments as desired. Reviews are how the system continiously re-aligns
+create adjustments as desired. Reviews are how the system continuously re-aligns
 with the user's desires.
+
+Reviews gather evidence from the reviews immediately beneath them in the temporal
+hierarchy (QuarterlyReview -> MonthlyReview -> WeeklyReview). Each review synthesizes
+the period below it into observations, patterns, and a direction for the next period
+in the form of a Focus.
 
 **Distinction**
 
@@ -364,31 +346,34 @@ daily entries, a Review records an Entry targeting a greater timespan.
 
 **Relationships**
 
-- Reviews create ReviewObservations for each thing Reviewed
-- Reviews can create a Focus
+- gather evidence from other Reviews in the time period being evaluated
+- create ReviewObservations for each thing reviewed
+- creates a Focus
 
-<!-- TODO: move to a new doc -->
-Reviews serve to prompt the user 
-to reflect on user actions in a defined time period (TimePeriod)
-
-##### ReviewObservation
+#### ReviewObservation
 
 **Definition**
 
 A ReviewObservation targets one specific object to review and asks the questions
 "*What happened with this target in this time period? Why? How do I feel about this?  What did I learn? What adjustments do I want to make?*"
 
-ReviewObservations hold a user's review for a specific target. The target can be a
-member of the Vision Domain or another member of the Entry Domain.
+ReviewObservations hold a user's review for a specific target. The target under review
+is used as evidence for the user to reflect on what happened and why; then derive
+the lessons learned and changes to make moving forward. ReviewObservations are the central
+point of Reviews and serve to help the user Foderive FocusPoints.
 
 **Distinction**
 
 **Rules**
 
-**Relationships**
-- references Vision and Entry Domain objects 
+- each ReviewObservation reviews only one thing
 
-#### WeeklyReview (Review Execution)
+**Relationships**
+
+- is created and owned by a Review
+- may evaluate an individual Vision, Outcome, Operation, Project, Commitment, Signal, Focus
+
+### WeeklyReview (Review Execution)
 
 **Definition**
 
@@ -396,55 +381,81 @@ A WeeklyReview answers the question "*Did I live according to my intentions this
 
 WeeklyReviews reflect on the day-to-day execution of the user's life in the last
 seven days. WeeklyReviews serve as an opportunity for users to examine their week
-and take accountability. WeeklyFocuses are created with specific points of focus
-for the upcoming week.
+and highlight priorities for their upcoming week by creating a WeeklyFocus.
+
+WeeklyReviews gather primary evidence from directly reviewing the previous WeeklyFocus,
+Projects and Commitments. Secondary evidence is provided by the weeks's Logs and Tasks.
+This evidence is used to provide an objective overview of what happened during the week.
+The user provides a subject perspective of these events through ReviewObservations.
+Through this process, users derive adjustments for the upcoming week in a WeeklyFocus.
 
 **Distinction**
 
 **Rules**
 
 **Relationships**
-- creates WeeklyFocus
-- references Logs, Projects, Commitments, Tasks, and WeeklyFocus
 
-#### MonthlyReview (Review Progress)
+- creates a WeeklyFocus
+- may evaluate Projects and a previous WeeklyFocus
+- gathers evidence from Logs, Commitments and Tasks of the week
+
+### MonthlyReview (Review Progress)
 
 **Definition**
 
 A MonthlyReview answers the question "*Am I actually moving my life forward?*"
 
-MonthlyReviews serve to review the progress made towards Outcomes in a month-long period.
-MonthlyReviews create a MonthlyFocus which declared the areas of priority for the
+MonthlyReviews serve to review the progress made towards Outcomes over a month-long period.
+MonthlyReviews gather evidence of progress from the WeeklyReviews in the completed month.
+MonthlyReviews create a MonthlyFocus which declares the areas of priority for the
 upcoming month.
+
+MonthlyReviews gather primary evidence from directly reviewing the previous MonthlyFocus,
+Outcomes, Operations and Projects. Secondary evidence is provided by WeeklyReviews
+recorded in the month under review. This evidence is used to provide an objective overview
+of what happened during the month. The user provides a subject perspective of the month's
+events through ReviewObservations. Through this process, users derive adjustments for the upcoming month in a MonthlyFocus.
 
 **Distinction**
 
 **Rules**
 
 **Relationships**
-- create MonthlyFocus
-- references Outcomes, Operations, Projects and MonthlyFocus
 
-#### QuarterlyReview (Review Direction)
+- create MonthlyFocus
+- may evaluate Outcomes, Operations, Projects and previous MonthlyFocus
+- gathers evidence from WeeklyReviews of the completed month
+
+### QuarterlyReview (Review Direction)
 
 **Definition**
 
 A QuarterlyReview answers the question "*Am I moving towards the right things?*"
 
-QuarterlyReviews reflect the progress made in the previous quarter and on the greater
-Vision behind the Outcomes the user is working towards. QuarterlyReviews reflect on the
-direction of the entire system and serve to periodically re-align the system with the user
-by providing an opportunity to make direction-level changes.
+QuarterlyReviews reflect the progress made towards Outcomes in the previous quarter
+and on the greater Vision(s) behind the Outcomes the user is working towards.
+QuarterlyReviews reflect on the direction of the entire system and serve to periodically
+question the user on their chosen direction to ensure they are still moving towards
+the correct goals.
+
+QuarterlyReviews gather primary evidence from directly reviewing the previous
+QuarterlyFocus, Visions, Outcomes and Operations. Secondary evidence is provided by
+MonthlyReviews recorded in the quarter under review. This evidence is used to provide
+an objective overview of what happened during the quarter. The user provides a subject
+perspective of the quarter's events through ReviewObservations. Through this process,
+users derive adjustments for the upcoming quarter in a QuarterlyFocus.
 
 **Distinction**
 
 **Rules**
 
 **Relationships**
-- create QuarterlyFocus
-- references Visions, Outcomes, Operations, QuarterlyFocus, MonthlyFocus
 
-##### Quarter
+- create QuarterlyFocus
+- may evaluate Visions, Outcomes, Operations and previous QuarterlyFocus
+- gathers evidence from the MonthlyReviews of the completed quarter
+
+#### Quarter
 
 **Definition**
 
@@ -463,62 +474,71 @@ Focus organizes user intentions over a period of time.
 Whereas a Review looks backwards and reflects, a Focus looks forward and directs attention.
 
 **Rules**
-- Focus can have 1-3 FocusPoint
+
+- may have more than one FocusPoint
 
 **Relationships**
+
 - create and own FocusPoint
 
-##### FocusPoint
+#### FocusPoint
 
 **Definition**
 
 A FocusPoint answers the question "*What deserves my attention?*"
 
 FocusPoints organize a statement of attention with reasoning. They can be qualitative,
-quantitative, behavioral or relational. If a FocusPoint is measurable, objectives
-can be declared with Metrics.
+quantitative, behavioral or relational. A FocusPoint may contain Metrics: tracked daily
+and used to evaluate a FocusPoint in a Review.
 
 **Distinction**
 
 **Rules**
 
 **Relationships**
-- can create Metrics
-- support Outcomes, Operations, Projects or Commitments
 
-##### Metric
+- may create Metrics
+- support Outcomes
+
+#### Metric
 
 **Definition**
 
 A Metric answers the question "*How can I measure my attention?*"
 
-Metrics are a measurable way to track a FocusPoint.
+Metrics are an optional measure used to evaluate a FocusPoint.
 
 **Distinction**
 
 **Rules**
 
+- optional
+
 **Relationships**
 
-#### WeeklyFocus
+- created and owned by a FocusPoint
+
+### WeeklyFocus
 
 **Definition**
 
 A WeeklyFocus answers the question "*What matters the most this week?*"
 
+WeeklyFocuses are created with specific points of focus for the upcoming week.
 A WeeklyFocus is created before a week during a WeeklyReview and users are reminded
-of this focus in every MorningLog. WeeklyFocuses are then reviewed during the next
-WeeklyReview.
+of this focus in every MorningLog of the week. WeeklyFocuses are then reviewed during
+the next WeeklyReview.
 
 **Distinction**
 
 **Rules**
 
 **Relationships**
-- referenced by MorningLog and MonthlyReview
+
+- referenced by MorningLogs
 - reviewed by WeeklyReview
 
-#### MonthlyFocus
+### MonthlyFocus
 
 **Definition**
 
@@ -528,18 +548,16 @@ A MonthlyFocus is created before a month during a MonthlyReview and users are re
 of this focus in every MorningLog. MonthlyFocuses are then reviewed during the next
 MonthlyReview.
 
-MonthlyFocus are reviewed alongside the WeeklyFocuses of the same month.
-The WeeklyFocuses serve to inform the user of what happened during the month.
-
 **Distinction**
 
 **Rules**
 
 **Relationships**
-- referenced by QuarterlyReview
+
+- referenced by MorningLogs
 - reviewed by MonthlyReview
 
-#### QuarterlyFocus
+### QuarterlyFocus
 
 **Definition**
 
@@ -549,12 +567,11 @@ A QuarterlyFocus is created before a quarter during a QuarterlyReview and users 
 reminded of this focus in every MorningLog. QuarterlyFocuses are then reviewed during
 the next QuarterlyReview.
 
-QuarterlyFocus are reviewed alongside the MonthlyFocuses of the same quarter.
-The MonthlyFocuses serve to inform the user of what happened during the quarter.
-
 **Distinction**
 
 **Rules**
 
 **Relationships**
+
+- referenced by MorningLogs
 - reviewed by QuarterlyReview
