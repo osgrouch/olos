@@ -13,6 +13,38 @@ serves as the single point of truth for what each term means.
 
 **Relationships**
 
+## Keywords
+
+The following keywords are **concepts** not objects, in the domain of this project.
+
+#### Agenda
+
+**Definition**
+
+An agenda is a collection of scheduled activities for a time period.
+
+
+#### Noise
+
+**Definition**
+
+Noise is anything that distracts the user from their priorities (see defintion
+of Signal below).
+
+### Support
+
+**Definition**
+
+An object may "support" another if its completion helps advance the user towards the
+supported object's goal. An object can support any number of other objects.
+
+**Relationships**
+
+- the following objects can support other objects:
+  - Operations, Projects, Commitments, FocusPoint
+- the following objects can be supported by other objects:
+  - Outcome, Operation, Project
+
 ## Vision Domain
 
 The Vision Domain answers the question
@@ -32,7 +64,8 @@ that the user wants to take their life in.
 
 **Relationships**
 
-- Visions create and own Outcomes.
+- creates and owns Outcomes
+- may be reviewed by any number of QuarterlyReviews
 
 ### Outcome
 
@@ -48,9 +81,9 @@ An Outcome is a real-world accomplishment that advances the user towards a Visio
 
 **Relationships**
 
-- may have Dependencies
-- are created and owned a Vision
-- may be supported by Operations, Projects and Commitments
+- may have any number of Dependencies
+- may be created and owned by a Vision
+- may be supported by Operations, Projects, Commitments and/or FocusPoints
 
 #### Dependency
 
@@ -62,6 +95,10 @@ A Dependency defines a type of relationship from one Outcome to another Outcome.
 An Outcome marked as a Dependency blocks significant progress being made on another
 Outcome until the Outcome marked as Dependency is completed. This provides a way for
 users to create a path towards achieving a Vision.
+
+**Rules**
+
+- Only Outcomes can be Dependencies for other Outcomes
 
 ### Operation
 
@@ -84,6 +121,7 @@ Operations are theoretically infinite.
 
 - may create and own Projects, Commitments and Tasks
 - may support Outcomes
+- may be supported by Commitments and/or FocusPoints
 
 ### Project
 
@@ -91,23 +129,22 @@ Operations are theoretically infinite.
 
 A Project answers the question of "*How do I accomplish a big task?*"
 
-A Project is an organized effort to accomplish some goal by a target date.
-Projects serve to organize related Tasks with one clear goal.
+A Project is an organized effort to accomplish some target goal.
+Projects serve to organize related Tasks towards a goal.
 
 **Distinction**
 
-Projects are finite by definition.
+- Projects are finite by definition
+- Projects end when the target goal is reached
 
 **Rules**
 
-- A Project cannot be created without a target end date.
-- A Project may continue beyond its original target end date.
-- Project end dates are modifiable.
+- an end date is not required to create a Project
 
 **Relationships**
 
 - may create and own Tasks
-- may be created and owned by Operations
+- may be created and owned by an Operation
 - may support Outcomes
 - may be supported by Commitments
 
@@ -119,14 +156,12 @@ A Commitment answers the question of "*What repeated behaviors am I promising to
 
 A Commitment is a repeated behavior that the user has committed to doing.
 
-**Distinction**
-
-**Rules**
-
 **Relationships**
 
+- created and owned by Operations
 - may create and own repeated Tasks
-- may support Projects and Outcomes
+- may support Outcomes and Projects
+- may be scheduled by a ScheduleItem
 
 ### Task
 
@@ -146,6 +181,7 @@ take towards some greater goal.
 **Relationships**
 
 - are created and owned by a singular Operation, Project or Commitment
+- may be scheduled by a ScheduleItem
 
 ## Entry Domain
 
@@ -167,7 +203,7 @@ for, or reflects upon their life during a defined period of time.
 
 A Log answers the question "*What is happening today?*"
 
-A Log describes a user's daily entries. Logs are designed to support a user's
+A Log describes a user's daily entries. Logs are intended to capture a user's
 day-to-day life.
 
 ### MorningLog (Prepare for the day)
@@ -179,20 +215,35 @@ A MorningLog answers the question "*What does today need to accomplish?*"
 A MorningLog describes the user's daily morning entry. A MorningLog prepares users
 for the day ahead of them by helping them setup their day's agenda.
 
+MorningLogs capture information about the user's bed-time and wake-up time in a
+SleepRecord, then remind them of their active Focus and scheduled Tasks
+and Commitments for the day. The user then declares their Signal items for the day
+and envision Obstacles they may face and prepare a Response for how they will deal
+with the Obstacle, if it arises, recorded in an ObstacleAndResponse. Finally,
+users will create ScheduleItems for their day's agenda.
+
 **Relationships**
 
 - creates and owns SleepRecord
-- creates and owns Mood
 - references active Focuses (Weekly, Monthly and Quarterly)
 - references today's schedule Tasks and Commitments
 - creates and owns Signal
 - creates and owns ObstacleAndResponse
+- creates ScheduleItems
 
-#### Agenda
+#### ScheduleItem
 
 **Definition**
 
-An agenda is the user's timeline of scheduled events/activities for a given day.
+A ScheduleItem answers the question of "*When am I going to do this?*"
+
+A ScheduleItem is an activity that has been given a dedicated time-block on the
+user's agenda. The item scheduled can be a Task, Commitment or Signal.
+
+**Relationships**
+
+- created by MorningLogs
+- each schedules a Task, Commitment or Signal
 
 #### SleepRecord
 
@@ -204,16 +255,6 @@ A SleepRecord records the user's bedtime and wakeup time.
 
 - is created and owned by a MorningLog
 
-#### Mood
-
-**Definition**
-
-Mood records the user's mood in a Log.
-
-**Relationships**
-
-- is created and owned by a Log (MorningLog or EveningLog)
-
 #### Signal
 
 **Definition**
@@ -224,7 +265,8 @@ The concept of Signal comes from the following source:
 [Kevin O'Leary talking about working with Steve Jobs on The Diary of a CEO podcast](https://www.youtube.com/watch?v=mpAZehPviLQ&t=535s).
 
 In short, Signal is the 3-5 things that need to get done before you go to bed.
-Anything that distracts you from these things are *noise*.
+Anything that distracts you from these things are **noise** (see keywords section
+for definition).
 
 **Rules**
 
@@ -232,13 +274,8 @@ Anything that distracts you from these things are *noise*.
 
 **Relationships**
 
-- may be reviewed by an EveningLog
-
-#### Noise
-
-**Definition**
-
-Noise is anything that distracts the user from their priorities (Signal).
+- may be reflected on by an EveningLog
+- may be scheduled by a ScheduleItem
 
 #### ObstacleAndResponse
 
@@ -267,17 +304,17 @@ An Obstacle is a type of noise.
 
 **Relationships**
 
-- may be referenced by any number of ObstacleAndResponse
+- may be referenced by any number of ObstacleAndResponses
 
 ##### Response
 
 **Definition**
 
-A Response is the text entered by the user reflecting on some prompt.
+A Response is the text entered by the user reflecting on some Prompt or Obstacle.
 
 **Relationships**
 
-- created and owned be some AndResponse
+- created and owned by a PromptAndResponse or ObstacleAndResponse
 
 ### EveningLog (Reflect on the day)
 
@@ -285,26 +322,27 @@ A Response is the text entered by the user reflecting on some prompt.
 
 An EveningLog answers the question "*What actually got done today?*"
 
-An EveningLog describes the user's daily evening entry. An EveningLog reflects on what
-the user did today.
+An EveningLog describes the user's daily evening entry. An EveningLog reflects on
+what the user did today.
 
-**Distinction**
-
-**Rules**
+EveningLogs reflect on active Focus and the day's ScheduleItems as well
+ObstacleAndResponses declared on the date's MorningLog.
 
 **Relationships**
 
-- creates and owns Mood
-- creates and owns GratitudePromptAndResponse
-- creates and owns ReflectionPromptAndResponse
+- creates and owns PromptAndResponse
 - references active Focuses (Weekly, Monthly and Quarterly)
-- creates and owns SignalReview
-  <!-- TODO: Should these be a formal Review object too? -->
-- references today's schedule Tasks and Commitments
+- reflects on today's ScheduleItems
+- reflects on today's ObstacleAndResponse
 
 #### PromptAndResponse
 
 A PromptAndResponse organizes a reusable Prompt with a user entered Response.
+
+**Relationships**
+
+- references a Prompt
+- creates and owns a Response
 
 ##### Prompt
 
@@ -314,12 +352,16 @@ A Prompt answers the question "*What statements do I want to reflect on?*"
 
 A Prompt is a statement that user provides an answer to in the form of a Response.
 
+**Relationships**
+
+- may be referenced by any number of PromptAndResponses
+
 ## Review And Focus Domain
 
 The Review And Focus Domain answers the questions
 "*What did I learn from my experience? What do I want to change moving forward?*"
 
-The Review And Focus Domain supports users by encouraging accountability through
+The Review And Focus Domain helps users by encouraging accountability through
 reflection and growth through intention-setting for an upcoming time period.
 
 ### Review
@@ -355,23 +397,24 @@ daily entries, a Review records an Entry targeting a greater timespan.
 **Definition**
 
 A ReviewObservation targets one specific object to review and asks the questions
-"*What happened with this target in this time period? Why? How do I feel about this?  What did I learn? What adjustments do I want to make?*"
+"*What happened with this target in this time period? Why? How do I feel about this? What did I learn? What adjustments do I want to make?*"
 
 ReviewObservations hold a user's review for a specific target. The target under review
 is used as evidence for the user to reflect on what happened and why; then derive
 the lessons learned and changes to make moving forward. ReviewObservations are the central
-point of Reviews and serve to help the user Foderive FocusPoints.
+point of Reviews and serve to help the user derive a Focus for an upcoming period of time.
 
 **Distinction**
 
 **Rules**
 
-- each ReviewObservation reviews only one thing
+- each ReviewObservation has only one target
 
 **Relationships**
 
 - is created and owned by a Review
-- may evaluate an individual Vision, Outcome, Operation, Project, Commitment, Signal, Focus
+- may evaluate a single Vision, Outcome, Operation, Project, Commitment, Focus
+- derives adjustments for a Focus
 
 ### WeeklyReview (Review Execution)
 
@@ -385,7 +428,8 @@ and highlight priorities for their upcoming week by creating a WeeklyFocus.
 
 WeeklyReviews gather primary evidence from directly reviewing the previous WeeklyFocus,
 Projects and Commitments. Secondary evidence is provided by the weeks's Logs and Tasks.
-This evidence is used to provide an objective overview of what happened during the week.
+Secondary evidence is not directly targeted by a ReviewObservation. This evidence
+is used to provide an objective overview of what happened during the week.
 The user provides a subject perspective of these events through ReviewObservations.
 Through this process, users derive adjustments for the upcoming week in a WeeklyFocus.
 
@@ -396,8 +440,8 @@ Through this process, users derive adjustments for the upcoming week in a Weekly
 **Relationships**
 
 - creates a WeeklyFocus
-- may evaluate Projects and a previous WeeklyFocus
-- gathers evidence from Logs, Commitments and Tasks of the week
+- may evaluate Projects, Commitments and a previous WeeklyFocus
+- gathers evidence from Logs and Tasks of the week
 
 ### MonthlyReview (Review Progress)
 
@@ -475,7 +519,7 @@ Whereas a Review looks backwards and reflects, a Focus looks forward and directs
 
 **Rules**
 
-- may have more than one FocusPoint
+- must have at least one FocusPoint
 
 **Relationships**
 
@@ -488,17 +532,20 @@ Whereas a Review looks backwards and reflects, a Focus looks forward and directs
 A FocusPoint answers the question "*What deserves my attention?*"
 
 FocusPoints organize a statement of attention with reasoning. They can be qualitative,
-quantitative, behavioral or relational. A FocusPoint may contain Metrics: tracked daily
-and used to evaluate a FocusPoint in a Review.
+quantitative, behavioral or relational. A FocusPoint may support an individual Outcome,
+Operation, Project or Commitment.
 
-**Distinction**
+A FocusPoint may contain Metrics.
 
 **Rules**
+
+- at least one FocusPoint exists for a Focus
+- Metrics are optional
 
 **Relationships**
 
 - may create Metrics
-- support Outcomes
+- may support a single Outcome, Operation, Project or Commitment
 
 #### Metric
 
@@ -506,7 +553,8 @@ and used to evaluate a FocusPoint in a Review.
 
 A Metric answers the question "*How can I measure my attention?*"
 
-Metrics are an optional measure used to evaluate a FocusPoint.
+Metrics are an optional measure used to evaluate a FocusPoint. Metrics are used to
+evaluate a FocusPoint when a ReviewObservation targets a Focus.
 
 **Distinction**
 
@@ -517,6 +565,7 @@ Metrics are an optional measure used to evaluate a FocusPoint.
 **Relationships**
 
 - created and owned by a FocusPoint
+- used to evaluate a FocusPoint
 
 ### WeeklyFocus
 
