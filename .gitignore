@@ -1,1 +1,5 @@
 **/.local/
+
+# Personal journal content. Lives in its own private repo, checked out here.
+# Principle 8: user data is confidential and never shared with anyone else.
+journal/private/

@@ -10,12 +10,11 @@ What exists that no longer should?
 
 ## Week Scores in WeeklyReviews
 
-## ReviewTarget - What things does this Review target?
+## Should entries be editable after submission?
 
-How exactly are each of these things reviewed? and now that we have this data, how can
-we help user use it to improve?
-
-## QuarterlyReview supporting evidence?
-
-Should QuarterlyReviews reference Projects? The goal is not to review them, but use them
-to inform the user of progress made during the quarter.
+I think they should. For example, a user can make a typo in a response and be
+allowed to edit the text to correct this. However, the intention of each entry
+is that once it is submitted, the plan should not change significantly. Each
+Entry is supposed to be intentional and should not allow for a re-review that
+makes significant changes to the original. If this does occur it indicates user
+error in completing the original Entry.
