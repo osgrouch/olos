@@ -25,9 +25,9 @@ shared and this repo is aimed at TestFlight.
 
 | OLOS object | Surface | Representation |
 |---|---|---|
-| **Vision** | markdown | `system/visions.md`, one `##` section each |
-| **Outcome** | markdown | `system/outcomes.md`, grouped under its Vision |
-| **Operation** | Reminders + markdown | A **list** inside the `OLOS` list group; defined in `system/operations.md` |
+| **Vision** | markdown | `system/01-visions.md`, one `##` section each |
+| **Outcome** | markdown | `system/02-outcomes.md`, grouped under its Vision |
+| **Operation** | Reminders + markdown | A **list** inside the `OLOS` list group; defined in `system/03-operations.md` |
 | **Project** | Reminders + markdown | A **section** inside its Operation's list; defined under that Operation |
 | **Commitment** | Reminders | A **recurring reminder** tagged `#commitment`, in its Operation's list |
 | **Task** | Reminders | A reminder in its parent's list/section |
@@ -37,8 +37,8 @@ shared and this repo is aimed at TestFlight.
 | **Obstacle / Response** | markdown | `Obstacle → Response` section of the daily log |
 | **MorningLog / EveningLog** | markdown | One file per day, `daily/YYYY-MM/YYYY-MM-DD.md`, two sections |
 | **Weekly/Monthly/QuarterlyReview** | markdown + Calendar | `reviews/…`, prompted by a recurring anchor event |
-| **Focus / FocusPoint / Metric** | markdown + Calendar | `system/focus.md`, mirrored as an all-day Calendar banner |
-| **Prompt** | markdown | `system/prompts.md` (seeded from the old `docs/journal/.local/`) |
+| **Focus / FocusPoint / Metric** | markdown + Calendar | `system/04-focus.md`, mirrored as an all-day Calendar banner |
+| **Prompt** | markdown | `system/06-prompts.md` (seeded from the old `docs/journal/.local/`) |
 
 ### Deliberately not modeled
 
@@ -98,7 +98,7 @@ daily/2026-09/2026-09-13.md
 reviews/weekly/2026-W38.md
 reviews/monthly/2026-09.md
 reviews/quarterly/2026-Q4.md
-system/{visions,outcomes,operations,focus,prompts,habits}.md
+system/01-visions.md … 06-prompts.md
 ```
 
 ---
@@ -107,9 +107,9 @@ system/{visions,outcomes,operations,focus,prompts,habits}.md
 
 ### Daily — Morning (~10 min)
 
-1. Open today's file from `templates/daily.md`.
+1. Open today's file from `daily/00-daily-template.md`.
 2. Sleep and feeling.
-3. Read `system/focus.md`. Copy the three active Focus statements into the log.
+3. Read `system/04-focus.md`. Copy the three active Focus statements into the log.
 4. Check Reminders `Today` and Calendar for what is already committed.
 5. **Declare Signal.** The things that, if nothing else happens, still made today
    count.
@@ -135,33 +135,49 @@ system/{visions,outcomes,operations,focus,prompts,habits}.md
 6. Habits checklist.
 7. Evening questions.
 
-### Weekly — Sunday (~45 min)
+**Every review is 30 minutes.** Each template carries a per-section budget. See
+[rule 6](#6-every-review-is-30-minutes-observations-are-capped-at-three) for how
+that is enforced and why it has to be.
 
-Reviews execution. Evidence: this week's Logs and completed Tasks (secondary,
-not directly observed) plus the previous WeeklyFocus, active Projects, and
-active Commitments (primary — each gets a ReviewObservation).
+### Weekly — Sunday, 30 min
 
-Output: **one new WeeklyFocus** with at least one FocusPoint, written into
-`system/focus.md`, and an all-day Calendar banner on `OLOS Rituals` spanning the
-coming week so it is visible every morning.
+Reviews execution. Secondary evidence — Logs, Signal counts, Commitment
+kept-rate, Project movement — is swept as **counts, not prose**. Then exactly
+**three** observations, chosen by rule: the previous WeeklyFocus, the worst-kept
+Commitment, and the Project that most needed to move.
 
-### Monthly — last Sunday (~60 min)
+Output: one **WeeklyFocus** (max 3 FocusPoints) into `system/04-focus.md`, a
+Calendar banner for the coming week, and a five-line **Roll-up** block.
 
-Reviews progress. Evidence: this month's WeeklyReviews. Observations target
-Outcomes, Operations, Projects, and the previous MonthlyFocus. Output: a
-MonthlyFocus.
+### Monthly — last Sunday, 30 min
 
-### Quarterly — last Sunday of the quarter (~90 min)
+Reviews progress. Evidence is the four weekly **Roll-up** blocks — twenty lines,
+pasted in. The weekly files are never reopened and the daily logs are never
+touched. Three observations: the previous MonthlyFocus, the Outcome that moved
+most, the one that should have moved and didn't. Output: a **MonthlyFocus** and
+a Roll-up block of its own.
 
-Reviews direction. Evidence: the quarter's MonthlyReviews. Observations target
-Visions, Outcomes, Operations, and the previous QuarterlyFocus. Output: a
-QuarterlyFocus, plus the cleanup pass — retire Visions, abandon Outcomes,
-archive Operations. From `notes.md`:
+### Quarterly — last Sunday of the quarter, 30 min
+
+Reviews direction. Evidence is the three monthly Roll-ups. The two questions from
+`notes.md` come **first**, before any observation hardens into a story:
 
 > What should exist that doesn't? What exists that no longer should?
 
-Reviews nest bottom-up on shared days: weekly at 15:00, monthly at 16:00,
-quarterly at 17:15. The lower review's output is the higher review's evidence.
+Then **one observation per Vision** plus the previous QuarterlyFocus — a fixed
+set, not a chosen one. Then the direction sweep: retire Visions, abandon
+Outcomes, archive Operations. Output: a **QuarterlyFocus**.
+
+This is the one budget that scales, and it scales with Vision count alone. Three
+Visions is 30 minutes; five is 45, and the fix is fewer Visions.
+
+The design review — ruling on `design-docs/03` Open Questions from a quarter of
+System notes — is **not** part of this. It is engineering work on OLOS and lives
+as a Task under the OLOS Operation.
+
+Reviews nest bottom-up on shared Sundays: weekly 15:00, monthly 15:45, quarterly
+16:30. The lower review's Roll-up *is* the higher review's evidence, which is the
+only reason the higher ones fit in 30 minutes.
 
 ---
 
@@ -237,6 +253,52 @@ things is a task list, and `03` § Focus explicitly says a Focus "should be shor
 enough that the user could recite it from memory during a MorningLog days
 later." Three is the recitable ceiling. Monthly and quarterly: 2.
 
+### 6. Every review is 30 minutes; observations are capped at three
+
+The first version of these templates had no observation cap. `03` says a
+WeeklyReview's observations may evaluate "a Project, a Commitment, or the
+previous WeeklyFocus" — and the templates read that list of *eligible target
+types* as the *required target set*, so every Project and every Commitment got
+its own five-field observation.
+
+Against a real inventory that is unworkable. After the Founding Session there
+are 6 Operations, ~10 Projects and ~21 Commitments, which made the WeeklyReview
+**32 observations — close to two hours, 52 times a year.** Monthly came to 19
+observations, quarterly to 11, each on top of re-reading every review beneath it.
+
+The spec never asked for this. ReviewObservation is `||--o{` — **zero or more**,
+never exhaustive. Thirty observations produce thirty shallow paragraphs and no
+insight; the breadth actively destroys the thing reviews exist for.
+
+**Decision, in four parts:**
+
+1. **Three observations per review.** Not four.
+2. **Selection is mechanical, never deliberated** — each template states the
+   rule. Deliberating over *what* to observe is itself a cost, and it is the
+   cost that makes people skip the session.
+3. **Breadth moves to aggregate sweeps.** Commitments get one kept-rate line and
+   only the worst is observed. This extends the treatment `03` already gives
+   Tasks — "secondary evidence… not a direct ReviewObservation target" — to
+   anything that is background at that cadence.
+4. **Each review emits a five-line Roll-up** written for the review above it.
+   The higher review reads only Roll-ups and never reopens the files beneath.
+   The 90 seconds this costs is paid when the week is fresh in mind, which makes
+   it both cheaper and *more accurate* than reconstructing a month from four
+   documents. `03` says reviews "gather evidence from the reviews immediately
+   beneath them" — it never said re-read them in full.
+
+Observation **fields** are untouched — all five of `03`'s questions remain. Only
+their length is bounded: paragraphs weekly, one line each monthly and quarterly.
+
+**Recheck:** if a field is reliably blank at monthly level, ReviewObservation
+needs cadence-specific field sets in v1 — which `03` does not model. Capture it
+in the weekly System notes.
+
+**This is the single most important finding for v1.** If the app's review screen
+lists every Project and Commitment with a text box under each, it will be
+unusable for exactly this reason, and it will look correct in the spec right up
+until someone with 21 Commitments opens it.
+
 ---
 
 ## What this run is testing
@@ -263,4 +325,4 @@ outranks data collection. The WeeklyReview template has one section for it
 
 ## Getting started
 
-[Founding Session](templates/founding-session.md).
+[Founding Session](templates/00-founding-session.md).

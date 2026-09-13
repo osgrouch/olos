@@ -54,7 +54,7 @@ mood_pm:
 
 ### Questions
 
-<!-- from system/prompts.md — morning -->
+<!-- from system/06-prompts.md — morning -->
 
 **…**
 
@@ -93,12 +93,12 @@ Did it show up? Did the response hold?
 
 ### Habits
 
-<!-- from system/habits.md -->
+<!-- from system/05-habits.md -->
 
 - [ ]
 
 ### Questions
 
-<!-- from system/prompts.md — evening -->
+<!-- from system/06-prompts.md — evening -->
 
 **…**

@@ -25,7 +25,7 @@ So: **Operations → Visions → Outcomes → wire them together → find the ga
 
 ---
 
-## 1. Operations (15 min) → `system/operations.md`
+## 1. Operations (15 min) → `system/03-operations.md`
 
 *What am I continuously responsible for?*
 
@@ -51,10 +51,10 @@ MonthlyReview instead of guessing.
 **Supports** — (fill in during step 4)
 ```
 
-- [ ] Written into `system/operations.md`
+- [ ] Written into `system/03-operations.md`
 - [ ] One Reminders list per Operation, inside the `OLOS` group
 
-## 2. Visions (20 min) → `system/visions.md`
+## 2. Visions (20 min) → `system/01-visions.md`
 
 *Where am I going?*
 
@@ -83,9 +83,9 @@ QuarterlyReview asks whether it is still the right direction.
 > self-doubt?"* describe a person. Who is that person, and what is he moving
 > toward? That is a Vision.
 
-- [ ] Written into `system/visions.md`
+- [ ] Written into `system/01-visions.md`
 
-## 3. Outcomes (25 min) → `system/outcomes.md`
+## 3. Outcomes (25 min) → `system/02-outcomes.md`
 
 *What needs to happen?*
 
@@ -110,7 +110,7 @@ this month is probably a Project.
 **Supported by** — (fill in during step 4)
 ```
 
-- [ ] Written into `system/outcomes.md`
+- [ ] Written into `system/02-outcomes.md`
 - [ ] No dependency cycles (`03` § Outcome — dev answer: circular dependencies
       are not allowed). Read the chain back out loud; a cycle makes both ends
       permanently unachievable.
@@ -145,7 +145,7 @@ honest. Silence is not.
 some things you do because they must be done. Drift is an Operation absorbing
 real time in service of a direction you no longer hold.
 
-## 6. First QuarterlyFocus (10 min) → `system/focus.md`
+## 6. First QuarterlyFocus (10 min) → `system/04-focus.md`
 
 *What season of life am I in?*
 

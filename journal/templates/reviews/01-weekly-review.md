@@ -8,45 +8,48 @@ end: YYYY-MM-DD
 
 > *Did I live according to my intentions this week?*
 >
-> Reviews **execution**. About 45 minutes. Sections 1–2 are evidence gathering —
-> go fast, stay factual. Section 3 is the actual work. Section 5 is the output;
-> the review is not finished until it exists.
+> **30 minutes.** Each section carries its budget. If a section overruns, cut it
+> short rather than borrowing from §4 — the Focus is the output, and a review
+> that produces no Focus produced nothing.
 
-## 1. Evidence — secondary
+## 1. Sweep — 5 min
 
-Not observed directly. This is the objective record of what happened, read
-before you start interpreting it.
+> Counts, not prose. Everything here is *secondary evidence* (`03`): it tells you
+> what happened, it does not get observed.
 
-**Logs** — days with a MorningLog: _ / 7 · EveningLog: _ / 7
+**Logs** — Morning _/7 · Evening _/7
 
-**Sleep** — average to · earliest wake · latest wake
+**Sleep** — average · earliest wake · latest wake
 
-**Signal** — declared: _ · completed: _ · pushed: _ · won't-do: _
+**Signal** — declared _ · completed _ · pushed _ · won't-do _
 
-**Tasks** — completed this week: _
+**Commitments** — kept _/_ · **missed:**
 
-Skim every daily log from the week before writing anything below. Note anything
-that repeats:
+**Projects** — moved: · **untouched:**
 
--
+## 2. Pick three — 1 min
 
-## 2. Evidence — primary
-
-The objects that will each get an observation. List them, don't judge them yet.
-
-- Previous WeeklyFocus:
-- Active Projects:
-- Active Commitments:
-
-## 3. Observations
-
-> One per target. Each answers: what happened · why · how do I feel about it ·
-> what did I learn · what am I changing.
+> Three observations. Not four. The selection is mechanical — do not deliberate,
+> just apply the rule:
 >
-> Tasks are never observation targets — they are aggregate evidence only.
-> Copy this block per target.
+> 1. **The previous WeeklyFocus.** Always. Non-negotiable.
+> 2. **The worst-kept Commitment** from §1.
+> 3. **The Project that most needed to move and didn't** — or, if the week went
+>    well, the one that moved most.
+>
+> Everything else you own stays unobserved this week. That is correct. `03`
+> makes ReviewObservations `zero or more`, never exhaustive — observing 30
+> objects produces 30 shallow paragraphs and no insight.
 
-### ⟨ Project | Commitment | previous WeeklyFocus ⟩ — *name*
+1.
+2.
+3.
+
+## 3. Observations — 12 min
+
+> Four minutes each. Copy per target.
+
+### ⟨ previous WeeklyFocus | Commitment | Project ⟩ — *name*
 
 **What happened**
 
@@ -60,18 +63,10 @@ The objects that will each get an observation. List them, don't judge them yet.
 
 ---
 
-## 4. Cleanup
+## 4. WeeklyFocus → next week — 6 min
 
-- [ ] Projects finished → mark Completed (a deliberate act; completing the last
-      Task does not do it for you)
-- [ ] Projects dead → Abandoned, section removed from Reminders
-- [ ] Commitments not being kept → Paused or Retired, not quietly ignored
-- [ ] Reminders lists match `system/operations.md`
-
-## 5. WeeklyFocus → next week
-
-> Maximum three FocusPoints. If you cannot recite them from memory on Wednesday
-> morning, there are too many or they are too long.
+> Maximum three FocusPoints. If you cannot recite them from memory on Wednesday,
+> there are too many or they are too long.
 
 ### FocusPoint 1
 
@@ -95,16 +90,38 @@ The objects that will each get an observation. List them, don't judge them yet.
 
 ---
 
-- [ ] Written into `system/focus.md`, replacing last week's
-- [ ] All-day banner created on `OLOS Rituals` spanning next week, titled
-      `W · <focus point 1 statement>`
+- [ ] Written into `system/04-focus.md`, replacing last week's
+- [ ] Banner on `OLOS Rituals` spanning next week, titled `W · <statement>`
 
-## 6. System notes
+## 5. Cleanup — 4 min
 
-> The only place the manual run is critiqued. What did the *method* get wrong
-> this week — friction, a rule that didn't survive contact, a field never used,
-> something you needed and had nowhere to put?
+> Checkboxes, not prose. Anything needing prose was an observation.
+
+- [ ] Projects finished → Completed (a deliberate act; the last Task does not do
+      it for you)
+- [ ] Projects dead → Abandoned, section removed from Reminders
+- [ ] Commitments not being kept → Paused or Retired, not quietly ignored
+- [ ] Reminders lists still match `system/03-operations.md`
+
+## 6. Roll-up → MonthlyReview — 2 min
+
+> **Write this now**, while the week is still in your head. The MonthlyReview
+> reads *only these five lines* — it never reopens this file. This is what makes
+> a 30-minute MonthlyReview possible, and it is more accurate than anything you
+> could reconstruct four weeks from now.
+
+**Week** — YYYY-Www
+**Kept** — signal _/_ · commitments _/_ · logs _/14
+**Moved** — the one thing that actually advanced
+**Stalled** — the one thing that should have and didn't
+**Focus set** —
+
+## 7. System notes — as long as it takes
+
+> Outside the budget. The only place the manual run is critiqued: friction, a
+> rule that didn't survive contact, a field never used, something you needed and
+> had nowhere to put. Feeds `design-docs/03` Open Questions.
 >
-> These feed `design-docs/03` Open Questions. Be specific enough to act on.
+> Some weeks this is empty. That is a finding too.
 
 -

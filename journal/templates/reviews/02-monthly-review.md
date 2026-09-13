@@ -6,62 +6,85 @@ period: YYYY-MM
 
 > *Am I actually moving my life forward?*
 >
-> Reviews **progress**, not execution — the weeks already judged themselves.
-> The question here is whether four fine weeks added up to anything.
-> About 60 minutes, immediately after the week's WeeklyReview.
+> **30 minutes.** Reviews **progress**, not execution — the weeks already judged
+> themselves. The question is only whether four fine weeks added up to anything.
 
-## 1. Evidence
+## 1. Evidence — 3 min
 
-Read this month's WeeklyReviews end to end. That is the whole evidence base —
-do not re-read the daily logs, you already did that weekly.
+> Paste the **Roll-up** block from each WeeklyReview this month. Five lines each,
+> twenty lines total. **Do not reopen the weekly files**, and do not go near the
+> daily logs — you already read them, weekly, when they were fresh.
+>
+> If a roll-up is missing, the month is thinner by one week. Do not go back and
+> reconstruct it; note the gap and move on.
 
-- WeeklyReviews covered:
+```
+W1 —
+W2 —
+W3 —
+W4 —
+```
 
-**Patterns across the weeks** — things that showed up in three or more:
+**Read those twenty lines once.** What shows up in three or more weeks?
 
 -
 
-**What every week's System notes kept saying**
+## 2. Pick three — 1 min
 
--
+> Mechanical. Do not deliberate:
+>
+> 1. **The previous MonthlyFocus.** Always.
+> 2. **The Outcome that moved most** — from the Moved lines above.
+> 3. **The Outcome or Operation that should have moved and didn't** — from the
+>    Stalled lines.
+>
+> If the same thing is stalled three months running, it is not stalled. It is
+> not a priority, and the honest move is to abandon it in §3.
 
-## 2. Observations
+1.
+2.
+3.
 
-> Targets: Outcomes · Operations · Projects · the previous MonthlyFocus.
-> Copy per target.
+## 3. Observations — 15 min
 
-### ⟨ Outcome | Operation | Project | previous MonthlyFocus ⟩ — *name*
+> Five minutes each. **One line per field** at this cadence — paragraphs are the
+> WeeklyReview's job, where the detail is still fresh. If a field is genuinely
+> empty at monthly level, leave it empty and note that in the weekly's System
+> notes: it is evidence that ReviewObservation may need cadence-specific fields
+> in v1, which `03` does not currently model.
 
-**What happened**
+### ⟨ previous MonthlyFocus | Outcome | Operation ⟩ — *name*
 
-**Why**
+**What happened** —
 
-**How I feel about it**
+**Why** —
 
-**What I learned**
+**How I feel about it** —
 
-**What I'm changing**
+**What I learned** —
+
+**What I'm changing** —
 
 ---
 
-## 3. Outcome status pass
+## 4. Status sweep — 3 min
 
-Walk every Outcome in `system/outcomes.md`. Movement, not activity — an Outcome
-that saw work but no progress is more useful to notice than one that saw
-neither.
+> Checkboxes and one-word statuses. Anything that needed prose was an
+> observation. Movement, not activity — an Outcome that saw work but no progress
+> is more worth catching than one that saw neither.
 
-| Outcome | Status | Moved this month? | Action |
-|---|---|---|---|
-| | Open / InProgress / Blocked / Achieved / Abandoned | | |
+| Outcome | Status | Moved? |
+|---|---|---|
+| | Open / InProgress / Blocked / Achieved / Abandoned | y / n |
 
-- [ ] Anything Blocked — is the dependency still real, or did the block expire
-      quietly?
-- [ ] Anything untouched two months running — abandon it or admit it is not a
-      priority this season
+- [ ] Anything Blocked — is the dependency still real, or did it expire quietly?
+- [ ] Anything untouched two months running → Abandoned, or admit out loud it is
+      not a priority this season
+- [ ] Any Operation supporting no Outcome at all — maintenance, or drift?
 
-## 4. MonthlyFocus → next month
+## 5. MonthlyFocus → next month — 6 min
 
-> Maximum two FocusPoints. It has to still mean something on day 25.
+> Two FocusPoints maximum. It has to still mean something on day 25.
 
 ### FocusPoint 1
 
@@ -85,5 +108,15 @@ neither.
 
 ---
 
-- [ ] Written into `system/focus.md`
+- [ ] Written into `system/04-focus.md`
 - [ ] Banner on `OLOS Rituals` spanning next month, titled `M · <statement>`
+
+## 6. Roll-up → QuarterlyReview — 2 min
+
+> Five lines. The QuarterlyReview reads only these.
+
+**Month** — YYYY-MM
+**Moved** —
+**Stalled** —
+**The month in one sentence** —
+**Focus set** —

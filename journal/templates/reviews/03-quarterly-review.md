@@ -6,23 +6,33 @@ period: YYYY-Qn
 
 > *Am I moving towards the right things?*
 >
-> Reviews **direction**. The one session where the answer is allowed to be
-> "none of this was the right mountain." About 90 minutes, after the month's
-> MonthlyReview.
+> **30 minutes.** Reviews **direction** — the one session where the answer is
+> allowed to be "none of this was the right mountain."
+>
+> This budget assumes **two or three Visions**. It scales with Vision count and
+> nothing else: at five Visions this is a 45-minute session no matter how it is
+> written, because every Vision must be observed. If it runs long, the answer is
+> fewer Visions, not a faster review.
 
-## 1. Evidence
+## 1. Evidence — 2 min
 
-This quarter's MonthlyReviews, read end to end. Nothing below them.
+> Paste the **Roll-up** block from each MonthlyReview this quarter. Three blocks,
+> fifteen lines. Do not reopen the monthly files.
 
-- MonthlyReviews covered:
+```
+M1 —
+M2 —
+M3 —
+```
 
-**What the quarter was actually about** — in two sentences, without consulting
-what you said it would be about:
+**What the quarter was actually about** — one sentence, written *before* you
+look at what you said it would be about:
 
-## 2. The two questions
+## 2. The two questions — 7 min
 
-> From `notes.md`. Answer them before the observations, while you can still be
-> honest — after three observations you will be invested in your own story.
+> The highest-value seven minutes in the whole system. Answer them **now**, first
+> — after three observations you are invested in your own story and will not see
+> straight. From `notes.md`.
 
 **What should exist that doesn't?**
 
@@ -32,47 +42,49 @@ what you said it would be about:
 
 -
 
-## 3. Observations
+## 3. Observations — 12 min
 
-> Targets: Visions · Outcomes · Operations · the previous QuarterlyFocus.
-> Copy per target.
+> **One per Vision, plus the previous QuarterlyFocus.** That is the whole set —
+> it is fixed, not chosen, so there is nothing to deliberate. Outcomes and
+> Operations are not observed here; they were observed monthly, and §4 catches
+> anything that needs a status change.
+>
+> One line per field.
 
-### ⟨ Vision | Outcome | Operation | previous QuarterlyFocus ⟩ — *name*
+### ⟨ Vision | previous QuarterlyFocus ⟩ — *name*
 
-**What happened**
+**What happened** —
 
-**Why**
+**Why** —
 
-**How I feel about it**
+**How I feel about it** —
 
-**What I learned**
+**What I learned** —
 
-**What I'm changing**
+**What I'm changing** —
 
 ---
 
-## 4. Direction pass
+## 4. Direction sweep — 4 min
 
-Every Vision, one at a time. This is the only session with the authority to
-retire one, and the only defence against drift — which is the thing this whole
-system exists to stop.
+> The only session with authority to retire a Vision, and the only real defence
+> against drift — which is the thing this entire system exists to stop.
 
-| Vision | Still the right direction? | Outcomes still the right path? | Action |
-|---|---|---|---|
-| | | | keep / reword / retire |
+| Vision | Still the right direction? | Action |
+|---|---|---|
+| | y / n | keep / reword / retire |
 
 - [ ] Outcomes that no longer serve their Vision → Abandoned
-- [ ] Outcomes with no Operation, Project, or Commitment pointing at them →
-      either something starts supporting it this quarter, or it is not real
+- [ ] Outcomes with **nothing** supporting them — something starts supporting it
+      this quarter, or it is not real
 - [ ] Operations you are no longer responsible for → Archived (children keep
-      referencing it; deletion would mean resolving each one first)
-- [ ] Dependency chains — any cycle, or any block that resolved without anyone
-      noticing?
+      pointing at it; deleting would mean resolving each one first)
+- [ ] Dependency chains — any cycle, or a block that resolved unnoticed?
 
-## 5. QuarterlyFocus → next quarter
+## 5. QuarterlyFocus → next quarter — 5 min
 
-> *What season of life am I in?* Name the season. Maximum two FocusPoints, and
-> the first one should reframe how every weekly focus underneath it reads.
+> *What season of life am I in?* Name the season. Two FocusPoints maximum, and
+> the first should reframe how every weekly focus underneath it reads.
 
 **The season** —
 
@@ -98,15 +110,16 @@ system exists to stop.
 
 ---
 
-- [ ] Written into `system/focus.md`
+- [ ] Written into `system/04-focus.md`
 - [ ] Banner on `OLOS Rituals` spanning next quarter, titled `Q · <season>`
 
-## 6. Design review
+---
 
-> Once a quarter, read this run against `design-docs/`. Every System note from
-> every WeeklyReview this quarter, collected — what does the evidence say about
-> the Open Questions in `03-domain-model-specifications.md`?
-
-| Open question | What a quarter of use showed | Decision |
-|---|---|---|
-| | | |
+> **The design review does not happen here.** Collecting a quarter of System
+> notes and ruling on `design-docs/03` Open Questions is engineering work on
+> OLOS, not a review of your life — it was inflating this session by twenty
+> minutes and mixing two unrelated activities.
+>
+> It belongs to the **OLOS** Operation as a Task under Journal v1, scheduled in
+> its own block the week after this review. Add the reminder now, then close
+> this file.
